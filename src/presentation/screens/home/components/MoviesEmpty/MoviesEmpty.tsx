@@ -14,7 +14,7 @@ export function MoviesEmpty() {
         <div className="md:w-[447px] w-[173px] h-[1.36px] bg-[#3F3D56]"></div>
       </div>
       <Button
-        className="w-[173px] h-[40px] text-white font-bold text-xs cursor-pointer"
+        className="w-[173px] h-[40px] text-white font-bold text-xs cursor-pointer rounded-sm"
         asChild
       >
         <Link href="/">Recarregar página</Link>

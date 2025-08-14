@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Open_Sans } from 'next/font/google'
 import './globals.css'
+import { Page } from '@/presentation/shared/layout'
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
@@ -19,8 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${openSans.variable} ${openSans.variable} antialiased`}>
-        {children}
+      <body
+        className={`${openSans.variable} ${openSans.variable} antialiased bg-secondary text-white`}
+      >
+        <Page>{children}</Page>
       </body>
     </html>
   )

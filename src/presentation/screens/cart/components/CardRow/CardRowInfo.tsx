@@ -11,9 +11,9 @@ export function CardRowInfo({
   image: string
 }) {
   return (
-    <div className="w-full max-w-[280px] flex gap-4 items-center">
+    <div className="w-full max-w-[280px] flex gap-4 sm:items-center items-start">
       <Image src={image} alt={title} width={91} height={114} />
-      <div className="flex flex-col gap-2">
+      <div className="flex sm:flex-col flex-row gap-2">
         <h3 className="text-sm text-secondary font-bold leading-none">
           {title}
         </h3>

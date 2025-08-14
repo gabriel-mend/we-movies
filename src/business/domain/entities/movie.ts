@@ -1,4 +1,4 @@
-export interface MovieType {
+interface Props {
   id: number
   title: string
   price: number
@@ -6,7 +6,7 @@ export interface MovieType {
 }
 
 export class Movie {
-  constructor(private readonly props: MovieType) {}
+  constructor(private readonly props: Props) {}
 
   get id() {
     return this.props.id

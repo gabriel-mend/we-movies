@@ -1,7 +1,9 @@
 import { MovieFactory } from '@/infrastructure/factories/movie-factory'
-import { MovieCard } from '@/presentation/screens/home/components'
-import { MoviesEmpty } from '@/presentation/screens/home/components/MoviesEmpty/MoviesEmpty'
-import { MoviesList } from '@/presentation/screens/home/components/MoviesList/MoviesList'
+import {
+  MovieCard,
+  MoviesEmpty,
+  MoviesList,
+} from '@/presentation/screens/home/components'
 
 export default async function Home() {
   const { movieGateway } = await MovieFactory()

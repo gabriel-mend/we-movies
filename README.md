@@ -108,7 +108,6 @@ src/
 
 - **Lint**: ESLint Flat Config com plugins `unused-imports`, `react-hooks`, `jsx-a11y`.
 - **Format**: Prettier.
-- **Erros HTTP**: verificação de `response.ok` e **timeout** via `AbortController`.
 - **Acessibilidade**: `aria-label` em botões icônicos, `aria-live` para totais, foco visível.
 
 ---

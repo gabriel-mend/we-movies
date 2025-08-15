@@ -2,7 +2,7 @@ import { handleFormatPriceToBR } from '@/presentation/shared/hooks/formats'
 
 export function CardRowSubTotal({ price }: { price: number }) {
   return (
-    <div className="w-full max-w-[66px] sm:max-w-[348px] text-md font-bold text-secondary">
+    <div className="w-full max-w-[66px] md:max-w-[100px] sm:max-w-[348px] text-md font-bold text-secondary">
       <span className="text-xs text-gray-regular flex sm:hidden w-[63px] font-bold">
         SUBTOTAL
       </span>

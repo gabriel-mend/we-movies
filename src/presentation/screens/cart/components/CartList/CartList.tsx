@@ -19,7 +19,7 @@ export function CartList() {
     handleRemoveMovieFromCart,
   } = useStoreCart()
   const [isSuccess, setisSuccess] = useState(false)
-  const isMobile = useIsMobile(500)
+  const isMobile = useIsMobile(640)
 
   const isCartEmpty = !cartMovies || cartMovies.length === 0
 

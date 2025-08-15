@@ -27,13 +27,12 @@ export function CardRowControl({
         <Image src={minusIcon} alt="Remover item" width={18} height={18} />
       </Button>
 
-      <input
+      <output
         aria-live="polite"
         className="border-gray-light border-[1px] rounded-sm w-[59px] sm:w-[62px] h-[26px] text-center"
-        value={amount}
-        type="number"
-        disabled
-      />
+      >
+        {amount}
+      </output>
 
       <Button
         aria-label="Aumentar"

@@ -13,7 +13,7 @@ export function CardRowMobileContentInfoGroup({
   handleRemoveMovieFromCart: () => void
 }) {
   return (
-    <div className="flex gap-4 items-center h-[22px]">
+    <div className="w-full flex gap-4 justify-between items-center h-[22px]">
       <p className="text-secondary text-sm font-bold min-w-[102px]">{title}</p>
       <span className="text-secondary text-md font-bold min-w-[66px]">
         {handleFormatPriceToBR(price)}

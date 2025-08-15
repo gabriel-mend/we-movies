@@ -1,7 +1,13 @@
 'use client'
 
 import { CartMovie } from '@/business/domain/entities/movie'
-import React, { createContext, useContext, useMemo, useState } from 'react'
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
 interface StoreCartContextProps {
   cartMovies: CartMovie[]
@@ -45,47 +51,57 @@ export function StoreCartProvider({ children }: StoreCartContextValue) {
       (cartMovie) => cartMovie.id === movie.id
     )
     if (movieIsAlreadyOnCart) {
-      setCartMovies((prev) =>
-        prev.map((cartMovie) => {
-          if (cartMovie.id === movie.id) {
-            return {
-              ...cartMovie,
-              amount: cartMovie.amount + 1,
-            }
+      const cartMoviesWithNewMovie = cartMovies.map((cartMovie) => {
+        if (cartMovie.id === movie.id) {
+          return {
+            ...cartMovie,
+            amount: cartMovie.amount + 1,
           }
-          return cartMovie
-        })
-      )
-
+        }
+        return cartMovie
+      })
+      setCartMovies(cartMoviesWithNewMovie)
+      localStorage.setItem('cartMovies', JSON.stringify(cartMoviesWithNewMovie))
       return
     }
 
-    setCartMovies((prev) => [...prev, { ...movie, amount: 1 }])
+    const cartMoviesWithNewMovie = [...cartMovies, { ...movie, amount: 1 }]
+
+    setCartMovies(cartMoviesWithNewMovie)
+    localStorage.setItem('cartMovies', JSON.stringify(cartMoviesWithNewMovie))
   }
 
   function handleDecreaseAmount(movieId: number) {
-    setCartMovies((prev) =>
-      prev
-        .map((cartMovie) => {
-          if (cartMovie.id === movieId) {
-            return {
-              ...cartMovie,
-              amount: cartMovie.amount - 1,
-            }
+    const cartMoviesDecreaseAmount = cartMovies
+      .map((cartMovie) => {
+        if (cartMovie.id === movieId) {
+          return {
+            ...cartMovie,
+            amount: cartMovie.amount - 1,
           }
+        }
 
-          return cartMovie
-        })
-        .filter((cartMovie) => cartMovie.amount > 0)
-    )
+        return cartMovie
+      })
+      .filter((cartMovie) => cartMovie.amount > 0)
+    setCartMovies(cartMoviesDecreaseAmount)
+    localStorage.setItem('cartMovies', JSON.stringify(cartMoviesDecreaseAmount))
   }
 
   function handleRemoveMovieFromCart(movieId: number) {
     const cartMoviesWithoutMovie = cartMovies.filter(
       (movie) => movie.id !== movieId
     )
+    localStorage.setItem('cartMovies', JSON.stringify(cartMoviesWithoutMovie))
     return setCartMovies(cartMoviesWithoutMovie)
   }
+
+  useEffect(() => {
+    const storedCartMovies = localStorage.getItem('cartMovies')
+    if (storedCartMovies) {
+      setCartMovies(JSON.parse(storedCartMovies))
+    }
+  }, [])
 
   return (
     <CreateStoreCartContext.Provider

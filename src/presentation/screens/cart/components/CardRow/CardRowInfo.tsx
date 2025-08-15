@@ -12,7 +12,7 @@ export function CardRowInfo({
 }) {
   return (
     <div className="w-full max-w-[280px] flex gap-4 items-center">
-      <Image src={image} alt={title} width={91} height={114} />
+      <Image src={image} alt={title} width={91} height={114} priority={true} />
       <div className="flex flex-col gap-2">
         <h3 className="text-sm text-secondary font-bold leading-none">
           {title}

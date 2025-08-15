@@ -7,5 +7,7 @@ export function CardRowMobileImage({
   image: string
   title: string
 }) {
-  return <Image src={image} alt={title} width={64} height={82} />
+  return (
+    <Image src={image} alt={title} width={64} height={82} priority={true} />
+  )
 }

@@ -31,6 +31,10 @@ Aplicação de catálogo e carrinho de compras construída com **Next.js (App Ro
 
 ---
 
+## Link produção: https://we-movies-gilt.vercel.app
+
+---
+
 ## Pré‑requisitos
 
 - **Node.js** ≥ 18.18 (recomendado 20 LTS)

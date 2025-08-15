@@ -1,4 +1,4 @@
-import { handleFormatPriceToBR } from '@/presentation/hooks/formats/handle-format-price-to-br'
+import { handleFormatPriceToBR } from '@/presentation/shared/hooks/formats/handle-format-price-to-br'
 import Image from 'next/image'
 
 export function CardRowInfo({

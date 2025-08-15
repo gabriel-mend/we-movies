@@ -1,6 +1,6 @@
 import { Button } from '@/presentation/external/shadcn/ui/button'
 import trashIcon from '@public/icons/trash-icon.svg'
-import { handleFormatPriceToBR } from '@/presentation/hooks/formats'
+import { handleFormatPriceToBR } from '@/presentation/shared/hooks/formats'
 import Image from 'next/image'
 
 export function CardRowMobileInfo({

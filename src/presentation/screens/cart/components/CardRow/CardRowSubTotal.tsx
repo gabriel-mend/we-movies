@@ -1,4 +1,4 @@
-import { handleFormatPriceToBR } from '@/presentation/hooks/formats'
+import { handleFormatPriceToBR } from '@/presentation/shared/hooks/formats'
 
 export function CardRowSubTotal({ price }: { price: number }) {
   return (

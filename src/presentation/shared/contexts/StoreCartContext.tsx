@@ -1,6 +1,7 @@
 'use client'
 
 import { CartMovie } from '@/business/domain/entities/movie'
+import { redirect } from 'next/navigation'
 import React, {
   createContext,
   useContext,
@@ -17,6 +18,7 @@ interface StoreCartContextProps {
   cartCalculateSubtotalPrice: (amount: number, price: number) => number
   handleRemoveMovieFromCart: (movieId: number) => void
   cartTotal: number
+  handleClearCart: () => void
 }
 
 export const CreateStoreCartContext =
@@ -96,6 +98,12 @@ export function StoreCartProvider({ children }: StoreCartContextValue) {
     return setCartMovies(cartMoviesWithoutMovie)
   }
 
+  function handleClearCart() {
+    localStorage.removeItem('cartMovies')
+    setCartMovies([])
+    redirect('/')
+  }
+
   useEffect(() => {
     const storedCartMovies = localStorage.getItem('cartMovies')
     if (storedCartMovies) {
@@ -113,6 +121,7 @@ export function StoreCartProvider({ children }: StoreCartContextValue) {
         cartCalculateSubtotalPrice,
         cartTotal,
         handleRemoveMovieFromCart,
+        handleClearCart,
       }}
     >
       {children}

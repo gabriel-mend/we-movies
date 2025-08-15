@@ -1,10 +1,11 @@
 import { Button } from '@/presentation/external/shadcn/ui/button'
 import { ContentInfo } from '@/presentation/shared/components/layout'
+import { useStoreCart } from '@/presentation/shared/contexts/StoreCartContext'
 import successIcon from '@public/images/success-icon.svg'
 import Image from 'next/image'
-import Link from 'next/link'
 
 export function CartMoviesSuccess() {
+  const { handleClearCart } = useStoreCart()
   return (
     <ContentInfo title="Compra realizada com sucesso!">
       <div className="flex flex-col items-center justify-center my-6  ">
@@ -12,9 +13,9 @@ export function CartMoviesSuccess() {
       </div>
       <Button
         className="w-[173px] h-[40px] text-white font-bold text-xs cursor-pointer rounded-sm"
-        asChild
+        onClick={handleClearCart}
       >
-        <Link href="/">VOLTAR</Link>
+        VOLTAR
       </Button>
     </ContentInfo>
   )

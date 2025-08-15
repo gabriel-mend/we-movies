@@ -136,3 +136,13 @@ src/
 ## Agradecimentos pelo Desafio
 
 `Agradeço à Wefit por propor e compartilhar este desafio técnico. O escopo e o layout disponibilizados direcionaram as principais decisões de arquitetura e a priorização de UX e acessibilidade ao longo do desenvolvimento. Foi uma ótima oportunidade para demonstrar práticas de código limpo, organização por camadas e testes, além de alinhar a aplicação às expectativas do case. Obrigado pelo tempo dedicado à avaliação.`
+
+## Sobre mim
+"Connect with me on LinkedIn to explore my career path and collaborate on amazing projects."
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.linkedin.com/in/gabriel-mendonca-pereira/"><img src="https://avatars0.githubusercontent.com/u/49095200?s=460&u=27a77c43fff5eab61be02a3fedfd7db554145981&v=4" width="100px;" alt="Kent C. Dodds"/><br /><sub><b>Gabriel Mendonça Pereira</b></sub></a><br />
+    </tr>
+  </tbody>
+</table>

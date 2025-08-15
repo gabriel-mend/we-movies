@@ -10,7 +10,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'WE MOVIES',
+  title: 'Teste Front React WeFit',
   description: 'Encontre seus filmes favoritos',
 }
 

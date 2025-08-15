@@ -1,36 +1,133 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WeMovies
 
-## Getting Started
+Aplicação de catálogo e carrinho de compras construída com **Next.js (App Router)** e **TypeScript**. Foco em fidelidade ao layout, UX responsiva e código limpo.
 
-First, run the development server:
+> **Resumo rápido**
+>
+> - Listagem de filmes com imagem, preço e ação de compra.
+> - Carrinho com incremento/decremento/remoção e totais.
+> - Tratamento de erro de carregamento e UI responsiva.
+> - Testes unitários com **Vitest + React Testing Library**.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## Stack
+
+- **Next.js** (App Router)
+- **TypeScript**
+- **Tailwind CSS** (+ utilitários tv/clsx/tw-merge se aplicável)
+- **shadcn/ui** (primitivos de UI acessíveis)
+- **Vitest** + **@testing-library/react** + **jsdom**
+
+---
+
+## Funcionalidades
+
+- ✔️ Catálogo de filmes a partir de uma API/JSON remoto.
+- ✔️ Adicionar ao carrinho, alterar quantidade e remover.
+- ✔️ Cálculo de subtotal/total com formatação monetária.
+- ✔️ Responsividade mobile/desktop via breakpoints.
+- ✔️ Fallback de erro quando a API está indisponível.
+
+---
+
+## Pré‑requisitos
+
+- **Node.js** ≥ 18.18 (recomendado 20 LTS)
+- **pnpm** (ou npm/yarn; o projeto usa pnpm por padrão)
+
+---
+
+## Como rodar
+
+1. **Instale dependências**
+
+   ```bash
+   pnpm install
+   ```
+
+2. **Configure variáveis de ambiente** Crie um arquivo **.env.local** na raiz baseado no exemplo abaixo:
+
+   ```env
+   # Exemplo — ajuste para sua API/base/JSON
+   API_URL=
+   ```
+
+3. **Dev server**
+
+   ```bash
+   pnpm dev
+   ```
+
+4. **Build + preview**
+
+   ```bash
+   pnpm build
+   pnpm start
+   ```
+
+---
+
+## Scripts
+
+```json
+{
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint .",
+  "typecheck": "tsc --noEmit",
+  "test": "vitest run",
+  "test:watch": "vitest",
+  "coverage": "vitest run --coverage"
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do projeto (resumo)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/                # rotas (App Router)
+  business/           # entidades e casos de uso
+  infrastructure/     # gateways/http/mappers
+  presentation/       # componentes e telas
+  presentation/shared/contexts   # StoreCartProvider / hooks
+  presentation/screens/home/...   # Home, MovieCard etc.
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Padrões & Qualidade
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Lint**: ESLint Flat Config com plugins `unused-imports`, `react-hooks`, `jsx-a11y`.
+- **Format**: Prettier.
+- **Erros HTTP**: verificação de `response.ok` e **timeout** via `AbortController`.
+- **Acessibilidade**: `aria-label` em botões icônicos, `aria-live` para totais, foco visível.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Decisões de arquitetura (resumo)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **App Router** pela melhor integração com streaming/SSR e segmentação.
+- **Separação** em camadas (UI ↔ casos de uso ↔ gateways) para testabilidade.
+- **Tailwind** para velocidade e consistência de layout; shadcn para acessibilidade.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Transparência
+
+- Ferramentas de IA utilizadas:
+
+- GitHub Copilot: apoio durante o desenvolvimento com autocomplete e sugestões pontuais de código.
+
+- ChatGPT: utilizado para a criação deste README e revisão textual.
+
+- O código-fonte da aplicação foi desenvolvido manualmente; nenhuma IA foi usada para gerar trechos críticos de regra de negócio.
+
+---
+
+## Agradecimentos pelo Desafio
+
+`Agradeço à Wefit por propor e compartilhar este desafio técnico. O escopo e o layout disponibilizados direcionaram as principais decisões de arquitetura e a priorização de UX e acessibilidade ao longo do desenvolvimento. Foi uma ótima oportunidade para demonstrar práticas de código limpo, organização por camadas e testes, além de alinhar a aplicação às expectativas do case. Obrigado pelo tempo dedicado à avaliação.`

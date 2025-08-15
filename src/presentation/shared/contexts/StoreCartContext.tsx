@@ -9,7 +9,7 @@ interface StoreCartContextProps {
   cartMoviesCount?: number
   handleDecreaseAmount: (movieId: number) => void
   cartCalculateSubtotalPrice: (amount: number, price: number) => number
-  handleClearCartMovie: () => void
+  handleRemoveMovieFromCart: (movieId: number) => void
   cartTotal: number
 }
 
@@ -82,8 +82,11 @@ export function StoreCartProvider({ children }: StoreCartContextValue) {
     )
   }
 
-  function handleClearCartMovie() {
-    setCartMovies([])
+  function handleRemoveMovieFromCart(movieId: number) {
+    const cartMoviesWithoutMovie = cartMovies.filter(
+      (movie) => movie.id !== movieId
+    )
+    return setCartMovies(cartMoviesWithoutMovie)
   }
 
   return (
@@ -95,7 +98,7 @@ export function StoreCartProvider({ children }: StoreCartContextValue) {
         handleDecreaseAmount,
         cartCalculateSubtotalPrice,
         cartTotal,
-        handleClearCartMovie,
+        handleRemoveMovieFromCart,
       }}
     >
       {children}

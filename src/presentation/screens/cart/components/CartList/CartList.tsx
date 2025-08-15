@@ -16,10 +16,10 @@ export function CartList() {
     handleDecreaseAmount,
     cartCalculateSubtotalPrice,
     cartTotal,
-    handleClearCartMovie,
+    handleRemoveMovieFromCart,
   } = useStoreCart()
   const [isSuccess, setisSuccess] = useState(false)
-  const isMobile = useIsMobile(600)
+  const isMobile = useIsMobile(500)
 
   const isCartEmpty = !cartMovies || cartMovies.length === 0
 
@@ -51,14 +51,24 @@ export function CartList() {
                 <CardRow.SubTotal
                   price={cartCalculateSubtotalPrice(movie.price, movie.amount)}
                 />
-                <CardRow.Actions />
+                <CardRow.Actions
+                  handleRemoveMovieFromCart={() =>
+                    handleRemoveMovieFromCart(movie.id)
+                  }
+                />
               </CardRow.Root>
             ))
           : cartMovies?.map((movie) => (
               <CardRowMobile.Root key={movie.id}>
                 <CardRowMobile.Image image={movie.image} title={movie.title} />
                 <CardRowMobile.Content>
-                  <CardRowMobile.Info title={movie.title} price={movie.price} />
+                  <CardRowMobile.Info
+                    title={movie.title}
+                    price={movie.price}
+                    handleRemoveMovieFromCart={() =>
+                      handleRemoveMovieFromCart(movie.id)
+                    }
+                  />
                   <CardRowMobile.Control>
                     <CardRow.Control
                       amount={movie.amount}

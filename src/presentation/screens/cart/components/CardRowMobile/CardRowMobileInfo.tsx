@@ -6,9 +6,11 @@ import Image from 'next/image'
 export function CardRowMobileInfo({
   title,
   price,
+  handleRemoveMovieFromCart,
 }: {
   title: string
   price: number
+  handleRemoveMovieFromCart: () => void
 }) {
   return (
     <div className="flex gap-4 items-center h-[22px]">
@@ -16,7 +18,12 @@ export function CardRowMobileInfo({
       <span className="text-secondary text-md font-bold min-w-[66px]">
         {handleFormatPriceToBR(price)}
       </span>
-      <Button className="flex items-center justify-center p-0" variant="ghost">
+      <Button
+        className="flex items-center justify-center p-0 cursor-pointer"
+        variant="ghost"
+        onClick={handleRemoveMovieFromCart}
+        asChild
+      >
         <Image src={trashIcon} alt="Deletar Item" width={18} />
       </Button>
     </div>

@@ -4,9 +4,9 @@ import { CartMovie } from '@/business/domain/entities/movie'
 import React, { createContext, useContext, useMemo, useState } from 'react'
 
 interface StoreCartContextProps {
-  cartMovies?: CartMovie[]
+  cartMovies: CartMovie[]
   handleIncreaseAmount: (movie: CartMovie) => void
-  cartCounterMovies?: number
+  cartCounterMovies: number
   handleDecreaseAmount: (movieId: number) => void
   cartCalculateSubtotalPrice: (amount: number, price: number) => number
   handleRemoveMovieFromCart: (movieId: number) => void
@@ -17,9 +17,7 @@ export const CreateStoreCartContext =
   createContext<StoreCartContextProps | null>(null)
 
 export interface StoreCartContextValue {
-  cartMovies?: CartMovie[]
   children: React.ReactNode
-  cartCounterMovies?: number
 }
 
 export function StoreCartProvider({ children }: StoreCartContextValue) {

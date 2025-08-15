@@ -16,7 +16,7 @@ export function MoviesList({ movies }: { movies: CartMovie[] }) {
           <MovieCard.Button
             handleAddToCart={() => handleIncreaseAmount(movie)}
             totalSelectedMovies={
-              cartMovies?.find((m) => m.id === movie.id)?.amount || 0
+              cartMovies.find((m) => m.id === movie.id)?.amount || 0
             }
           />
         </MovieCard.Root>

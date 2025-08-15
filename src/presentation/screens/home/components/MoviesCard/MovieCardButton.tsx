@@ -20,7 +20,7 @@ export function MovieCardButton({
   handleAddToCart,
   totalSelectedMovies,
 }: {
-  handleAddToCart?: () => void
+  handleAddToCart: () => void
   totalSelectedMovies: number
 }) {
   const hasMovies = totalSelectedMovies > 0

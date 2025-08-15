@@ -13,4 +13,10 @@ describe('Component <Header />', () => {
     const logo = await screen.findByText(/wemovies/i)
     expect(logo).toBeInTheDocument()
   })
+
+  it('should render a cart link', async () => {
+    render(<Header />)
+    const link = await screen.findByRole('link', { name: /carrinho|cart/i })
+    expect(link).toBeInTheDocument()
+  })
 })

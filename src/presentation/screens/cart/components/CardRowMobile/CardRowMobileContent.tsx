@@ -1,4 +1,4 @@
-export function CardRowMobileContent({
+export function CardRowMobileContentGroup({
   children,
 }: {
   children: React.ReactNode

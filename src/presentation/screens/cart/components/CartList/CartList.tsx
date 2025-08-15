@@ -61,15 +61,15 @@ export function CartList() {
           : cartMovies?.map((movie) => (
               <CardRowMobile.Root key={movie.id}>
                 <CardRowMobile.Image image={movie.image} title={movie.title} />
-                <CardRowMobile.Content>
-                  <CardRowMobile.Info
+                <CardRowMobile.ContentGroup>
+                  <CardRowMobile.InfoGroup
                     title={movie.title}
                     price={movie.price}
                     handleRemoveMovieFromCart={() =>
                       handleRemoveMovieFromCart(movie.id)
                     }
                   />
-                  <CardRowMobile.Control>
+                  <CardRowMobile.ControlGroup>
                     <CardRow.Control
                       amount={movie.amount}
                       handleIncrement={() => handleIncreaseAmount(movie)}
@@ -81,8 +81,8 @@ export function CartList() {
                         movie.amount
                       )}
                     />
-                  </CardRowMobile.Control>
-                </CardRowMobile.Content>
+                  </CardRowMobile.ControlGroup>
+                </CardRowMobile.ContentGroup>
               </CardRowMobile.Root>
             ))}
       </div>

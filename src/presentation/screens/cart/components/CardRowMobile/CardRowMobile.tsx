@@ -1,7 +1,7 @@
-import { CardRowMobileContent } from './CardRowMobileContent'
-import { CardRowMobileContentControl } from './CardRowMobileContentControl'
+import { CardRowMobileContentGroup } from './CardRowMobileContent'
+import { CardRowMobileContentControlGroup } from './CardRowMobileContentControlGroup'
 import { CardRowMobileImage } from './CardRowMobileImage'
-import { CardRowMobileContentInfo } from './CardRowMobileContentInfo'
+import { CardRowMobileContentInfoGroup } from './CardRowMobileContentInfoGroup'
 
 function CardRowMobileComponent({ children }: { children: React.ReactNode }) {
   return <div className="flex gap-4">{children}</div>
@@ -10,7 +10,7 @@ function CardRowMobileComponent({ children }: { children: React.ReactNode }) {
 export const CardRowMobile = {
   Root: CardRowMobileComponent,
   Image: CardRowMobileImage,
-  Info: CardRowMobileContentInfo,
-  Control: CardRowMobileContentControl,
-  Content: CardRowMobileContent,
+  InfoGroup: CardRowMobileContentInfoGroup,
+  ControlGroup: CardRowMobileContentControlGroup,
+  ContentGroup: CardRowMobileContentGroup,
 }

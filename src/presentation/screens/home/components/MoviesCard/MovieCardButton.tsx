@@ -8,7 +8,7 @@ const button = tv({
   variants: {
     color: {
       primary: 'text-white',
-      secondary: 'bg-[#039B00] text-white hover:bg-[#039B00]/90',
+      secondary: 'bg-green-regular text-white hover:bg-green-regular/90',
     },
   },
   defaultVariants: {

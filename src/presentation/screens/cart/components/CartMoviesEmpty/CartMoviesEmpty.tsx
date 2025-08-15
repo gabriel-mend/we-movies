@@ -1,6 +1,6 @@
 import { Button } from '@/presentation/external/shadcn/ui/button'
 import { ContentInfo } from '@/presentation/shared/components/layout'
-import reloadPersonIcon from '@public/icons/reload-person-icon.svg'
+import reloadPersonIcon from '@public/images/reload-person-icon.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 

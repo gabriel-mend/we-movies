@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import loadingIcon from '@public/icons/load-spinner.svg'
+import loadingIcon from '@public/images/load-spinner.svg'
 export default function Loading() {
   return (
     <div className="flex justify-center p-10">

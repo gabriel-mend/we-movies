@@ -1,16 +1,51 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import { dirname } from 'path'
+import { fileURLToPath } from 'url'
+import { FlatCompat } from '@eslint/eslintrc'
+import globals from 'globals'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// plugins (importa os módulos!)
+import unusedImports from 'eslint-plugin-unused-imports'
+import jsxA11y from 'eslint-plugin-jsx-a11y'
+import reactHooks from 'eslint-plugin-react-hooks'
 
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
-];
+const compat = new FlatCompat({ baseDirectory: __dirname })
 
-export default eslintConfig;
+export default [
+  // seus extends convertidos pelo compat
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+
+  // bloco para registrar plugins e regras
+  {
+    plugins: {
+      'unused-imports': unusedImports,
+      'jsx-a11y': jsxA11y,
+      'react-hooks': reactHooks,
+    },
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+    },
+    rules: {
+      // unused-imports
+      'unused-imports/no-unused-imports': 'error',
+      'unused-imports/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          varsIgnorePattern: '^_',
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+        },
+      ],
+
+      // react-hooks
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+
+      // a11y
+      'jsx-a11y/alt-text': 'warn',
+    },
+  },
+]

@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${openSans.variable} ${openSans.variable} antialiased bg-secondary text-white`}
+        className={`${openSans.variable} antialiased bg-secondary text-white`}
       >
         <StoreCartProvider>
           <Page>{children}</Page>

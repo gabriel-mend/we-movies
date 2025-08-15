@@ -6,7 +6,7 @@ import React, { createContext, useContext, useMemo, useState } from 'react'
 interface StoreCartContextProps {
   cartMovies?: CartMovie[]
   handleIncreaseAmount: (movie: CartMovie) => void
-  cartMoviesCount?: number
+  cartCounterMovies?: number
   handleDecreaseAmount: (movieId: number) => void
   cartCalculateSubtotalPrice: (amount: number, price: number) => number
   handleRemoveMovieFromCart: (movieId: number) => void
@@ -19,13 +19,13 @@ export const CreateStoreCartContext =
 export interface StoreCartContextValue {
   cartMovies?: CartMovie[]
   children: React.ReactNode
-  cartMoviesCount?: number
+  cartCounterMovies?: number
 }
 
 export function StoreCartProvider({ children }: StoreCartContextValue) {
   const [cartMovies, setCartMovies] = useState<CartMovie[]>([])
 
-  const cartMoviesCount = cartMovies.reduce(
+  const cartCounterMovies = cartMovies.reduce(
     (acc, movie) => acc + movie.amount,
     0
   )
@@ -94,7 +94,7 @@ export function StoreCartProvider({ children }: StoreCartContextValue) {
       value={{
         cartMovies,
         handleIncreaseAmount,
-        cartMoviesCount,
+        cartCounterMovies,
         handleDecreaseAmount,
         cartCalculateSubtotalPrice,
         cartTotal,

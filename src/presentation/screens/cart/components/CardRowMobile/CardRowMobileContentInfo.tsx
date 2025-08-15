@@ -3,7 +3,7 @@ import trashIcon from '@public/icons/trash-icon.svg'
 import { handleFormatPriceToBR } from '@/presentation/shared/hooks/formats'
 import Image from 'next/image'
 
-export function CardRowMobileInfo({
+export function CardRowMobileContentInfo({
   title,
   price,
   handleRemoveMovieFromCart,

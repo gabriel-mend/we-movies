@@ -1,6 +1,5 @@
 import { Button } from '@/presentation/external/shadcn/ui/button'
 import { handleFormatPriceToBR } from '@/presentation/shared/hooks/formats'
-import Link from 'next/link'
 
 export function CardListFooter({
   price,

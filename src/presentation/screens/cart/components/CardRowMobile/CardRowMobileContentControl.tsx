@@ -1,4 +1,4 @@
-export function CardRowMobileControl({
+export function CardRowMobileContentControl({
   children,
 }: {
   children: React.ReactNode
